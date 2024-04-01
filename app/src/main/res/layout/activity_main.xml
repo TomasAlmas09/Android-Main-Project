@@ -20,7 +20,7 @@
             android:layout_height="?attr/actionBarSize"
             android:background="@drawable/toolbar"
             app:menu="@menu/mainmenu"
-            app:title="DDM_PL"
+            app:title="@string/app_name"
             app:titleTextColor="@color/black"
             />
 

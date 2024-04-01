@@ -94,6 +94,18 @@ public class MainActivity extends AppCompatActivity {
 
             Toast.makeText(this, "Primos", Toast.LENGTH_SHORT).show();
         }
+
+        if (id == R.id.mnu_posts_mainmenu) {
+
+            FragmentTransaction t = getSupportFragmentManager().beginTransaction();
+            Posts_DB frgposts = Posts_DB.newInstance();
+            t.add(R.id.fragmentContainerView, frgposts);
+            t.addToBackStack(null);
+            t.commit();
+
+            Toast.makeText(this, "Posts_DB", Toast.LENGTH_SHORT).show();
+        }
+
         return super.onOptionsItemSelected(item);
     }
 }

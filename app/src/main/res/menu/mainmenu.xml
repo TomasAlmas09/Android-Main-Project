@@ -23,5 +23,10 @@
         android:icon="@drawable/num_pares"
         android:title="NumPrimos"
         app:showAsAction="collapseActionView"></item>
+    <item
+        android:id="@+id/mnu_posts_mainmenu"
+        android:icon="@drawable/posts"
+        android:title="Posts_DB"
+        app:showAsAction="collapseActionView"></item>
 
 </menu>

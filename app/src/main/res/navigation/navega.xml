@@ -15,14 +15,4 @@
         android:name="com.example.aula_26_01_2024.Dois"
         android:label="fragment_dois"
         tools:layout="@layout/fragment_dois" />
-    <fragment
-        android:id="@+id/tres"
-        android:name="com.example.aula_26_01_2024.tres"
-        android:label="fragment_tres"
-        tools:layout="@layout/fragment_selos" />
-    <fragment
-        android:id="@+id/calculadora"
-        android:name="com.example.aula_26_01_2024.calculadora"
-        android:label="fragment_calculadora"
-        tools:layout="@layout/fragment_calculadora" />
 </navigation>
