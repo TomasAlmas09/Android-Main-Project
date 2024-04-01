@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/calc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginBottom="16dp"
+            android:gravity="top"
+            android:textColor="@color/white"
+            android:textSize="50sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/clearButton"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1.5"
+                android:backgroundTint="@color/silver"
+                android:text="C"
+                android:textColor="@android:color/black"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/undoButton"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1.5"
+                android:backgroundTint="@color/silver"
+                android:text="U"
+                android:textColor="@android:color/black"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/diveButton"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/orange"
+                android:text="÷"
+                android:textColor="@android:color/white"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/darkgray"
+                android:text="1"
+                android:textColor="@android:color/white"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/darkgray"
+                android:text="2"
+                android:textColor="@android:color/white"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/darkgray"
+                android:text="3"
+                android:textColor="@android:color/white"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+
+            <!-- Adicione botões para outros números e operadores conforme necessário -->
+
+            <Button
+                android:id="@+id/multiButton"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/orange"
+                android:text="x"
+                android:textColor="@android:color/white"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/darkgray"
+                android:drawableStart="@color/darkgray"
+                android:drawableRight="@color/darkgray"
+                android:text="4"
+                android:textColor="@android:color/white"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/darkgray"
+                android:text="5"
+                android:textColor="@android:color/white"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/button6"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/darkgray"
+                android:text="6"
+                android:textColor="@android:color/white"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+
+            <!-- Adicione botões para outros números e operadores conforme necessário -->
+
+            <Button
+                android:id="@+id/minorButton"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/orange"
+                android:text="-"
+                android:textColor="@android:color/white"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button7"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/darkgray"
+                android:text="7"
+                android:textColor="@android:color/white"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/button8"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/darkgray"
+                android:text="8"
+                android:textColor="@android:color/white"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/button9"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/darkgray"
+                android:text="9"
+                android:textColor="@android:color/white"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+
+            <!-- Adicione botões para outros números e operadores conforme necessário -->
+
+            <Button
+                android:id="@+id/addButton"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/orange"
+                android:text="+"
+                android:textColor="@android:color/white"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button0"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_margin="3dp"
+                android:layout_weight="2"
+                android:backgroundTint="@color/darkgray"
+                android:text="0"
+                android:textColor="@android:color/white"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+            <Button
+                android:id="@+id/pointButton"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/darkgray"
+                android:text=","
+                android:textColor="@android:color/white"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/BtnIgual"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/orange"
+                android:text="="
+                android:textColor="@android:color/white"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>
+

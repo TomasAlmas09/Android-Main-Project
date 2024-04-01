@@ -1,0 +1,16 @@
+<!-- res/drawable/borda_toolbar.xml -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Cor de fundo da Toolbar -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/black" />
+            <!-- Cor de fundo da Toolbar -->
+        </shape>
+    </item>
+    <!-- Adiciona uma cor sólida à parte inferior da Toolbar -->
+    <item android:bottom="2.5dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#FFFFFF" /> <!-- Cor sólida da parte inferior -->
+        </shape>
+    </item>
+</layer-list>
