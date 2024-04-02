@@ -12,7 +12,7 @@ import java.io.ByteArrayOutputStream;
 
 public class Post implements Parcelable {
     //region campos
-    private  int tittle;
+    private  String tittle;
     private String  desc;
 
     private  byte[] foto;
@@ -21,7 +21,7 @@ public class Post implements Parcelable {
     //region Getters & Setters
 
     protected Post(Parcel in) {
-        tittle = in.readInt();
+        tittle = in.readString();
         desc = in.readString();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             foto = in.readBlob();
@@ -30,7 +30,7 @@ public class Post implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(tittle);
+        dest.writeString(tittle);
         dest.writeString(desc);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             dest.writeBlob(foto);
@@ -54,11 +54,11 @@ public class Post implements Parcelable {
         }
     };
 
-    public int getTittle() {
+    public String getTittle() {
         return tittle;
     }
 
-    public void setTittle(int tittle) {
+    public void setTittle(String tittle){
         this.tittle = tittle;
     }
 
@@ -87,12 +87,12 @@ public class Post implements Parcelable {
         return String.format("%d %s", tittle,desc);
     }
 
-    public Post(int tittle, String desc, String string, byte[] foto, String curString) {
+    public Post(int postId,String tittle, byte[] foto, String desc) {
         this.tittle = tittle;
         this.desc = desc;
         this.foto = foto;
     }
-    public Post(int tittle, String desc,Bitmap bmp) {
+    public Post(String tittle, String desc,Bitmap bmp) {
         this.tittle = tittle;
         this.desc = desc;
         this.foto = bitmaptoarray(bmp);

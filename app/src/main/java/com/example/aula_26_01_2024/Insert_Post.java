@@ -6,80 +6,96 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ArrayAdapter;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Spinner;
 
-import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.Fragment;
 
 import java.io.IOException;
 
-public class Insert_Post extends AppCompatActivity {
-    private static final int CANALFOTO = 3;
-    EditText editTitle,editDesc;
-    Button btinsert, btcancel;
+public class Insert_Post extends Fragment {
 
-    ImageView imgfoto;
+    private View view;
+
+    public Insert_Post() {
+        // Required empty public constructor
+    }
+
+    public static Insert_Post newInstance() {
+        Insert_Post fragment = new Insert_Post();
+        return fragment;
+    }
+
+    private static final int CANALFOTO = 3;
+    EditText editTitle, editDescription;
+    Button btInsert, btCancel;
+    ImageView imgPhoto;
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode==CANALFOTO && resultCode==RESULT_OK){
-            Uri uri = Uri.parse(data.getData().toString());
-            try {
-                Bitmap bmp = MediaStore.Images.Media.getBitmap(getContentResolver(),uri);
-                imgfoto.setImageBitmap(bmp);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        view = inflater.inflate(R.layout.activity_insert, container, false);
+        return view;
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_insert);
-        editTitle =findViewById(R.id.edit_posttitle_insert);
-        editDesc=findViewById(R.id.edit_desc_insert);
-        imgfoto = findViewById(R.id.img_foto_insert);
-        imgfoto.setOnClickListener(new View.OnClickListener() {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        editTitle = view.findViewById(R.id.edit_posttitle_insert);
+        editDescription = view.findViewById(R.id.edit_desc_insert);
+        imgPhoto = view.findViewById(R.id.img_foto_insert);
+        imgPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent itfoto = new Intent(Intent.ACTION_GET_CONTENT);
                 itfoto.setType("image/*");
-                startActivityForResult(itfoto,CANALFOTO);
+                startActivityForResult(itfoto, CANALFOTO);
             }
         });
 
-        btinsert= findViewById(R.id.bt_insert_insert);
-        btinsert.setOnClickListener(new View.OnClickListener() {
+        btInsert = view.findViewById(R.id.bt_insert_insert);
+        btInsert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int posttitle = Integer.parseInt(editTitle.getText().toString());
-                String desc = editDesc.getText().toString();
-                BitmapDrawable drw =(BitmapDrawable) imgfoto.getDrawable();
+                String title = editTitle.getText().toString();
+                String desc = editDescription.getText().toString();
+                BitmapDrawable drw = (BitmapDrawable) imgPhoto.getDrawable();
                 Bitmap bmp = drw.getBitmap();
-                Post novo = new Post(posttitle,desc,bmp);
-                MyBD myBD = new MyBD(Insert_Post.this,1);
+                Post novo = new Post(title, desc, bmp);
+                MyBD myBD = new MyBD(requireContext(), 1);
                 myBD.insertPost(novo);
                 App.loadList();
-                finish();
+                requireActivity().finish();
             }
         });
-        btcancel =findViewById(R.id.bt_cancel_insert);
-        btcancel.setOnClickListener(new View.OnClickListener() {
+        btCancel = view.findViewById(R.id.bt_cancel_insert);
+        btCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                requireActivity().finish();
             }
         });
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == CANALFOTO && resultCode == requireActivity().RESULT_OK) {
+            Uri uri = data.getData();
+            try {
+                Bitmap bmp = MediaStore.Images.Media.getBitmap(requireContext().getContentResolver(), uri);
+                imgPhoto.setImageBitmap(bmp);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

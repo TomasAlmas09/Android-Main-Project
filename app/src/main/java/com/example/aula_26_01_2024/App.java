@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class App extends Application {
-    public static List<Post> stand = new ArrayList<>();
+    public static List<Post> post = new ArrayList<>();
     public  static Context ctx;
     public  static  final String TAG="Xpto";
     @Override
@@ -17,10 +17,10 @@ public class App extends Application {
         ctx=getApplicationContext();
         Log.i(TAG,"App Created");
         loadList();
-        for(Post c : stand)Log.i(TAG,c.toString());
+        for(Post c : post)Log.i(TAG,c.toString());
     }
     public  static  void loadList(){
         MyBD myBD = new MyBD(ctx,1);
-        stand = myBD.loadList();
+        post = myBD.loadList();
     }
 }

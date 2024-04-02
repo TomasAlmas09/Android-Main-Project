@@ -87,9 +87,8 @@ public class MyBD extends SQLiteOpenHelper {
                 Post post = new Post(
                         cur.getInt(0),
                         cur.getString(1),
-                        cur.getString(2),
-                        cur.getBlob(3),
-                        cur.getString(4)
+                        cur.getBlob(2),
+                        cur.getString(3)
                 );
                 lista.add(post);
             }while (cur.moveToNext());
